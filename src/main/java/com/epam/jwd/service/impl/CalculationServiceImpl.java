@@ -47,13 +47,13 @@ public class CalculationServiceImpl implements CalculationService {
         if (isPositive) {
             for (int value : massive.getData()) {
                 if (value > 0) {
-                    counter += value;
+                    counter++;
                 }
             }
         } else {
             for (int value : massive.getData()) {
                 if (value < 0) {
-                    counter += value;
+                    counter++;
                 }
             }
         }
