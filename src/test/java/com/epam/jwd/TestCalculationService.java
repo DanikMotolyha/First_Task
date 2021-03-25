@@ -10,8 +10,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TestCalculationService {
-    static final Logger LOGGER = LogManager.getLogger(TestCalculationService.class);
-
 
     @DataProvider(name = "sumTestData")
     public Object[][] sumTestData() {
@@ -95,24 +93,18 @@ public class TestCalculationService {
     @Test(dataProvider = "sumTestData")
     public void sumTest(CustomArray customArray, int expectedSum) {
         int sum = CalculationServiceImpl.getInstance().sum(customArray);
-        LOGGER.log(Level.INFO, new StringBuilder()
-                .append("test with data: ").append(customArray.toString()));
         Assert.assertEquals(sum, expectedSum);
     }
 
     @Test(dataProvider = "averageTestData")
     public void averageTest(CustomArray customArray, int expectedAverage) {
         int average = CalculationServiceImpl.getInstance().average(customArray);
-        LOGGER.log(Level.INFO, new StringBuilder()
-                .append("test with data: ").append(customArray.toString()));
         Assert.assertEquals(average, expectedAverage);
     }
 
     @Test(dataProvider = "numbersCounterTestData")
     public void numbersCounterTest(CustomArray customArray, boolean isPositive, int expectedCounter) {
         int counter = CalculationServiceImpl.getInstance().numbersCounter(customArray, isPositive);
-        LOGGER.log(Level.INFO, new StringBuilder()
-                .append("test with data: ").append(customArray.toString()));
         Assert.assertEquals(counter, expectedCounter);
     }
 }

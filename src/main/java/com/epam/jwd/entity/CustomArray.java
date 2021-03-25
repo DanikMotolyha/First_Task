@@ -3,18 +3,22 @@ package com.epam.jwd.entity;
 import java.util.Arrays;
 
 public class CustomArray {
-    int[] data;
 
-    public CustomArray(int[] a) {
-        data = a;
+    private int[] data;
+
+    public CustomArray() {
+    }
+
+    public CustomArray(int[] data) {
+        this.data = Arrays.copyOf(data, data.length);
     }
 
     public int[] getData() {
-        return data;
+        return Arrays.copyOf(data, data.length);
     }
 
     public void setData(int[] data) {
-        this.data = data;
+        this.data = Arrays.copyOf(data, data.length);
     }
 
     @Override
