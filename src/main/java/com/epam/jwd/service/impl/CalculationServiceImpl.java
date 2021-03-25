@@ -1,6 +1,6 @@
 package com.epam.jwd.service.impl;
 
-import com.epam.jwd.entity.Massive;
+import com.epam.jwd.entity.CustomArray;
 import com.epam.jwd.service.CalculationService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -19,39 +19,39 @@ public class CalculationServiceImpl implements CalculationService {
     }
 
     @Override
-    public int average(Massive massive) {
+    public int average(CustomArray customArray) {
         LOGGER.log(Level.INFO,
                 new StringBuilder().append("func average with obj: ")
-                        .append(massive.toString()));
-        return sum(massive) / massive.getData().length;
+                        .append(customArray.toString()));
+        return sum(customArray) / customArray.getData().length;
     }
 
     @Override
-    public int sum(Massive massive) {
+    public int sum(CustomArray customArray) {
         LOGGER.log(Level.INFO,
                 new StringBuilder().append("func sum with obj: ")
-                        .append(massive.toString()));
+                        .append(customArray.toString()));
         int sum = 0;
-        for (int value : massive.getData()) {
+        for (int value : customArray.getData()) {
             sum += value;
         }
         return sum;
     }
 
     @Override
-    public int numbersCounter(Massive massive, boolean isPositive) {
+    public int numbersCounter(CustomArray customArray, boolean isPositive) {
         LOGGER.log(Level.INFO,
                 new StringBuilder().append("func numbersCounter with obj: ")
-                        .append(massive.toString()));
+                        .append(customArray.toString()));
         int counter = 0;
         if (isPositive) {
-            for (int value : massive.getData()) {
+            for (int value : customArray.getData()) {
                 if (value > 0) {
                     counter++;
                 }
             }
         } else {
-            for (int value : massive.getData()) {
+            for (int value : customArray.getData()) {
                 if (value < 0) {
                     counter++;
                 }

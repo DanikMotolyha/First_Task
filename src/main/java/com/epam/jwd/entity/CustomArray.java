@@ -2,10 +2,10 @@ package com.epam.jwd.entity;
 
 import java.util.Arrays;
 
-public class Massive {
+public class CustomArray {
     int[] data;
 
-    public Massive(int[] a) {
+    public CustomArray(int[] a) {
         data = a;
     }
 
@@ -36,7 +36,7 @@ public class Massive {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Massive massive = (Massive) obj;
-        return massive.data == this.data;
+        CustomArray customArray = (CustomArray) obj;
+        return customArray.data == this.data;
     }
 }

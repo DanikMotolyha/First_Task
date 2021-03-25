@@ -1,12 +1,12 @@
 package com.epam.jwd.service;
 
-import com.epam.jwd.entity.Massive;
+import com.epam.jwd.entity.CustomArray;
 
 public interface CalculationService {
 
-    int average(Massive massive);
+    int average(CustomArray customArray);
 
-    int sum(Massive massive);
+    int sum(CustomArray customArray);
 
-    int numbersCounter(Massive massive, boolean isPositive);
+    int numbersCounter(CustomArray customArray, boolean isPositive);
 }

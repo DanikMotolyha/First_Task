@@ -1,12 +1,12 @@
 package com.epam.jwd.service;
 
-import com.epam.jwd.entity.Massive;
+import com.epam.jwd.entity.CustomArray;
 
 public interface MassiveService {
 
-    int min(Massive massive);
+    int min(CustomArray customArray);
 
-    int max(Massive massive);
+    int max(CustomArray customArray);
 
-    int update(Massive massive, int from, int to, int ... values);
+    int update(CustomArray customArray, int from, int to, int ... values);
 }
