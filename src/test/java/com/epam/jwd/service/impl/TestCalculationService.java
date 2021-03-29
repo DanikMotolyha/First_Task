@@ -61,15 +61,33 @@ public class TestCalculationService {
         Assert.assertEquals(sum, expectedSum);
     }
 
+    @Test(dataProvider = "sumTestData")
+    public void sumTestStream(CustomArray customArray, int expectedSum) throws CustomArrayException {
+        int sum = CalculationServiceImpl.getInstance().sumStream(customArray);
+        Assert.assertEquals(sum, expectedSum);
+    }
+
     @Test(dataProvider = "averageTestData")
     public void averageTest(CustomArray customArray, int expectedAverage) throws CustomArrayException {
         int average = CalculationServiceImpl.getInstance().average(customArray);
         Assert.assertEquals(average, expectedAverage);
     }
 
+    @Test(dataProvider = "averageTestData")
+    public void averageStreamTest(CustomArray customArray, int expectedAverage) throws CustomArrayException {
+        int average = CalculationServiceImpl.getInstance().averageStream(customArray);
+        Assert.assertEquals(average, expectedAverage);
+    }
+
     @Test(dataProvider = "numbersCounterTestData")
     public void numbersCounterTest(CustomArray customArray, boolean isPositive, int expectedCounter) throws CustomArrayException {
         int counter = CalculationServiceImpl.getInstance().numbersCounter(customArray, isPositive);
+        Assert.assertEquals(counter, expectedCounter);
+    }
+
+    @Test(dataProvider = "numbersCounterTestData")
+    public void numbersCounterStreamTest(CustomArray customArray, boolean isPositive, int expectedCounter) throws CustomArrayException {
+        int counter = CalculationServiceImpl.getInstance().numbersCounterStream(customArray, isPositive);
         Assert.assertEquals(counter, expectedCounter);
     }
 

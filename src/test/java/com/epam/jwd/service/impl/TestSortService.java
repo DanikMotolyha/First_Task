@@ -55,4 +55,10 @@ public class TestSortService {
         SortServiceImpl.getInstance().CombSort(customArray);
         Assert.assertEquals(customArray, expected);
     }
+
+    @Test(dataProvider = "TestData")
+    public void StreamSort(CustomArray customArray, CustomArray expected) throws CustomArrayException {
+        SortServiceImpl.getInstance().SteamSort(customArray);
+        Assert.assertEquals(customArray, expected);
+    }
 }

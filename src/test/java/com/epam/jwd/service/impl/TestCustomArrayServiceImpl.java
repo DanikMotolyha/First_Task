@@ -53,9 +53,21 @@ public class TestCustomArrayServiceImpl {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test(dataProvider = "minTestData")
+    public void minStreamTest(CustomArray customArray, int expected) throws CustomArrayException {
+        int actual = CustomArrayServiceImpl.getInstance().minStream(customArray);
+        Assert.assertEquals(actual, expected);
+    }
+
     @Test(dataProvider = "maxTestData")
     public void maxTest(CustomArray customArray, int expected) throws CustomArrayException {
         int actual = CustomArrayServiceImpl.getInstance().max(customArray);
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test(dataProvider = "maxTestData")
+    public void maxStreamTest(CustomArray customArray, int expected) throws CustomArrayException {
+        int actual = CustomArrayServiceImpl.getInstance().maxStream(customArray);
         Assert.assertEquals(actual, expected);
     }
 
