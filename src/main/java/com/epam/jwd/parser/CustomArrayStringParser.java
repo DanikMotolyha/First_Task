@@ -2,7 +2,7 @@ package com.epam.jwd.parser;
 
 import java.util.stream.Stream;
 
-public class CustomArrayFileParser {
+public class CustomArrayStringParser {
 
     public int[] parse(String input){
         return Stream

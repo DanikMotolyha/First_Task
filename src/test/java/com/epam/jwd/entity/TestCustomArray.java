@@ -1,9 +1,6 @@
 package com.epam.jwd.entity;
 
-import com.epam.jwd.creator.CustomArrayCreator;
 import com.epam.jwd.exception.CustomArrayException;
-import com.epam.jwd.reader.CustomArrayReader;
-import com.epam.jwd.validation.CustomArrayFileValidator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -49,23 +46,4 @@ public class TestCustomArray {
         CustomArray array = new CustomArray(new int[]{1, 2, 3, 4});
         array.setElement(2, 45);
     }
-
-    @Test
-    public void as() {
-        try (CustomArrayReader reader = new CustomArrayReader()) {
-           while(reader.hasNextLine()){
-                System.out.println(reader.getNextLine());
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    @Test
-    public void CustomArrayCreatorTest() {
-        CustomArrayCreator creator = new CustomArrayCreator();
-        CustomArray array = creator.createFromFile();
-        System.out.println(array);
-    }
-
 }
