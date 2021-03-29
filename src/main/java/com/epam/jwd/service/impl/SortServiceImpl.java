@@ -7,6 +7,8 @@ import com.epam.jwd.validation.CustomArrayServiceValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.stream.IntStream;
+
 public class SortServiceImpl implements SortService {
     private final static SortService INSTANCE = new SortServiceImpl();
     private final static Logger LOGGER = LogManager.getLogger(SortServiceImpl.class);
@@ -37,6 +39,12 @@ public class SortServiceImpl implements SortService {
             }
         }
         customArray.setData(array);
+    }
+
+    public void SteamSort(CustomArray customArray) throws CustomArrayException{
+        validator.validateNotNullOrEmpty(customArray);
+        int[] custom = IntStream.of(customArray.getData()).sorted().toArray();
+        customArray.setData(custom);
     }
 
     @Override

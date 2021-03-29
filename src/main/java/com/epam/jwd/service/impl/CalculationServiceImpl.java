@@ -8,6 +8,8 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.stream.IntStream;
+
 public class CalculationServiceImpl implements CalculationService {
     private final static CalculationService INSTANCE = new CalculationServiceImpl();
     private final static Logger LOGGER = LogManager.getLogger(CalculationServiceImpl.class);
@@ -29,6 +31,15 @@ public class CalculationServiceImpl implements CalculationService {
         return sum(customArray) / customArray.getData().length;
     }
 
+    public int averageStream(CustomArray customArray) throws CustomArrayException {
+        validator.validateNotNullOrEmpty(customArray);
+        LOGGER.log(Level.INFO,
+                new StringBuilder().append("func average with obj: ")
+                        .append(customArray.toString()));
+        return (int) IntStream.of(customArray.getData())
+                .average().orElseThrow();
+    }
+
     @Override
     public int sum(CustomArray customArray) throws CustomArrayException {
         validator.validateNotNullOrEmpty(customArray);
@@ -40,6 +51,14 @@ public class CalculationServiceImpl implements CalculationService {
             sum += value;
         }
         return sum;
+    }
+
+    public int sumStream(CustomArray customArray) throws CustomArrayException {
+        validator.validateNotNullOrEmpty(customArray);
+        LOGGER.log(Level.INFO,
+                new StringBuilder().append("func sum with obj: ")
+                        .append(customArray.toString()));
+        return IntStream.of(customArray.getData()).sum();
     }
 
     @Override
@@ -63,5 +82,16 @@ public class CalculationServiceImpl implements CalculationService {
             }
         }
         return counter;
+    }
+
+    public int numbersCounterStream(CustomArray customArray, boolean isPositive) throws CustomArrayException {
+        validator.validateNotNullOrEmpty(customArray);
+        LOGGER.log(Level.INFO,
+                new StringBuilder().append("func numberCounter with obj: ")
+                        .append(customArray.toString()));
+        IntStream stream = IntStream.of(customArray.getData());
+        return (int) (isPositive
+                        ? stream.filter(elem -> elem > 0).count()
+                        : stream.filter(elem -> elem < 0).count());
     }
 }

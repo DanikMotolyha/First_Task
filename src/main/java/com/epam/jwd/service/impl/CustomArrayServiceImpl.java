@@ -7,6 +7,9 @@ import com.epam.jwd.validation.CustomArrayServiceValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 public class CustomArrayServiceImpl implements CustomArrayService {
     private final static CustomArrayService INSTANCE = new CustomArrayServiceImpl();
     private final static Logger LOGGER = LogManager.getLogger(CustomArrayServiceImpl.class);
@@ -32,6 +35,11 @@ public class CustomArrayServiceImpl implements CustomArrayService {
         return min;
     }
 
+    public int minStream(CustomArray customArray) throws CustomArrayException{
+        validator.validateNotNullOrEmpty(customArray);
+        return IntStream.of(customArray.getData()).min().orElseThrow();
+    }
+
     @Override
     public int max(CustomArray customArray) throws CustomArrayException {
         validator.validateNotNullOrEmpty(customArray);
@@ -42,6 +50,12 @@ public class CustomArrayServiceImpl implements CustomArrayService {
             }
         }
         return max;
+    }
+
+
+    public int maxStream(CustomArray customArray) throws CustomArrayException{
+        validator.validateNotNullOrEmpty(customArray);
+        return IntStream.of(customArray.getData()).max().orElseThrow();
     }
 
     /**

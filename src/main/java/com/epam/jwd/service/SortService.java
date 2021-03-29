@@ -11,4 +11,5 @@ public interface SortService {
 
    void CombSort(CustomArray customArray) throws CustomArrayException;
 
+   void SteamSort(CustomArray customArray) throws CustomArrayException;
 }
