@@ -25,10 +25,10 @@ public class Main {
                     break;
                 }
             }
+            LOGGER.log(Level.INFO, array);
         } catch (Exception e) {
             LOGGER.log(Level.FATAL, "cannot create from file CustomArray");
             throw new CustomArrayException("cannot create from file CustomArray");
         }
-        LOGGER.log(Level.INFO, array);
     }
 }
