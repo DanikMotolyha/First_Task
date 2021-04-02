@@ -9,12 +9,10 @@ import java.util.Scanner;
 public class CustomArrayReader implements AutoCloseable {
     private Scanner scan;
     private FileReader reader;
-    private String fileName;
 
     public CustomArrayReader(String fileName) throws CustomArrayException {
         try {
-            this.fileName = fileName;
-            reader = new FileReader(this.fileName);
+            reader = new FileReader(fileName);
             scan = new Scanner(reader);
         } catch (IOException e) {
             throw new CustomArrayException("Custom reader cant read file property or cant read the file");

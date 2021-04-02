@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Scanner;
+
 public class TestCustomArrayReader {
 
     @DataProvider(name = "customArrayReaderData")

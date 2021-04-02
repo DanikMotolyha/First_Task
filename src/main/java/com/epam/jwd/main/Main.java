@@ -15,15 +15,13 @@ public class Main {
 
     public static void main(String[] args) throws CustomArrayException {
         CustomArray array = null;
-        CustomArrayStringValidator validator = new CustomArrayStringValidator();
-        CustomArrayStringParser parser = new CustomArrayStringParser();
         try (CustomArrayReader reader =
                      new CustomArrayReader(
                              "src\\main\\resources\\data\\inputParameters.txt")) {
             while (reader.hasNextLine()) {
                 String line = reader.getNextLine();
-                if (validator.validate(line)) {
-                    array = new CustomArray(parser.parse(line));
+                if (CustomArrayStringValidator.validate(line)) {
+                    array = new CustomArray(CustomArrayStringParser.parse(line));
                     break;
                 }
             }

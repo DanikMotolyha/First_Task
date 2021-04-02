@@ -16,15 +16,13 @@ public class TestCustomArrayStringParser {
 
     @Test(dataProvider = "parseTestData")
     public void parseTest(String parseString, int[] expected) {
-        CustomArrayStringParser parser = new CustomArrayStringParser();
-        int[] actual = parser.parse(parseString);
+        int[] actual = CustomArrayStringParser.parse(parseString);
         Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void parseTestFail() {
-        CustomArrayStringParser parser = new CustomArrayStringParser();
-        int[] actual = parser.parse("1 5 54 8 74 -4 54 51 2 3");
+        int[] actual = CustomArrayStringParser.parse("1 5 54 8 74 -4 54 51 2 3");
         int[] expected = new int[]{1, 5};
         Assert.assertNotEquals(actual, expected);
     }

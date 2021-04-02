@@ -16,13 +16,11 @@ public class TestCustomArrayStringValidator {
 
     @Test(dataProvider = "validateTestData")
     public void validateTest(String validateString) {
-        CustomArrayStringValidator validator = new CustomArrayStringValidator();
-        Assert.assertTrue(validator.validate(validateString));
+        Assert.assertTrue(CustomArrayStringValidator.validate(validateString));
     }
 
     @Test
     public void validateTestFail() {
-        CustomArrayStringValidator validator = new CustomArrayStringValidator();
-        Assert.assertFalse(validator.validate("12 12 -5 a5 -5 124"));
+        Assert.assertFalse(CustomArrayStringValidator.validate("12 12 -5 a5 -5 124"));
     }
 }
