@@ -44,8 +44,7 @@ public class CustomArray {
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = result + 10 * (data != null ? data.length : 0);
+        int result = 31 + 10 * (data != null ? data.length : 0);
         return result;
     }
 
