@@ -15,7 +15,7 @@ public class CustomArrayReader implements AutoCloseable {
             reader = new FileReader(fileName);
             scan = new Scanner(reader);
         } catch (IOException e) {
-            throw new CustomArrayException("Custom reader cant read file property or cant read the file");
+            throw new CustomArrayException("Custom reader cant read the file");
         }
     }
 

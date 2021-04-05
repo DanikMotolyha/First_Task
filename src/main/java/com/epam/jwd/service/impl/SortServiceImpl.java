@@ -41,7 +41,7 @@ public class SortServiceImpl implements SortService {
         customArray.setData(array);
     }
 
-    public void SteamSort(CustomArray customArray) throws CustomArrayException{
+    public void SteamSort(CustomArray customArray) throws CustomArrayException {
         validator.validateNotNullOrEmpty(customArray);
         int[] custom = IntStream.of(customArray.getData()).sorted().toArray();
         customArray.setData(custom);

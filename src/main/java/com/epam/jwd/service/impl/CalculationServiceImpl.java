@@ -91,7 +91,7 @@ public class CalculationServiceImpl implements CalculationService {
                         .append(customArray.toString()));
         IntStream stream = IntStream.of(customArray.getData());
         return (int) (isPositive
-                        ? stream.filter(elem -> elem > 0).count()
-                        : stream.filter(elem -> elem < 0).count());
+                ? stream.filter(elem -> elem > 0).count()
+                : stream.filter(elem -> elem < 0).count());
     }
 }

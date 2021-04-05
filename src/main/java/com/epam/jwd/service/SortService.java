@@ -5,11 +5,11 @@ import com.epam.jwd.exception.CustomArrayException;
 
 public interface SortService {
 
-   void bubbleSort(CustomArray customArray) throws CustomArrayException;
+    void bubbleSort(CustomArray customArray) throws CustomArrayException;
 
-   void shakeSort(CustomArray customArray) throws CustomArrayException;
+    void shakeSort(CustomArray customArray) throws CustomArrayException;
 
-   void CombSort(CustomArray customArray) throws CustomArrayException;
+    void CombSort(CustomArray customArray) throws CustomArrayException;
 
-   void SteamSort(CustomArray customArray) throws CustomArrayException;
+    void SteamSort(CustomArray customArray) throws CustomArrayException;
 }

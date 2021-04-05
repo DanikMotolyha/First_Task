@@ -44,7 +44,7 @@ public class CustomArray {
 
     @Override
     public int hashCode() {
-        int result = 31 + 10 * (data != null ? data.length : 0);
+        int result = 31 + 10 * (data != null ? Arrays.stream(data).sum() : 0);
         return result;
     }
 
